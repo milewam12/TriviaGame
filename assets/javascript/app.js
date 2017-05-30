@@ -1,4 +1,44 @@
+
+// TIMER //
+window.onload = function () {
+    $("#start").on("click", timeCount.runtimer);
+    $
+
+
+//     $("#done").click(function () {
+//     $("#clear").detach();
+    
+// })
+}
+
+var timeCount = {
+    timer : 5,
+    intervalId:"" ,
+    reset: function (){
+        timeCount.timer = 0;
+    },
+    runtimer : function () {
+    intervalId = setInterval(timeCount.decrement, 1000);
+    },
+    decrement : function() {
+    timeCount.timer--;
+    
+    $("#show-timer").html("<h3> Time remaining: " + timeCount.timer + "  seconds</h3>")
+    if (timeCount.timer === 0){
+    timeCount.stop();
+    alert("Time Up!");
+    }
+    },
+
+    stop : function () {
+        clearInterval(intervalId);
+    }
+    }
+
+
 $(document).ready(function () {
+
+  
 
 //GLOBAL VARIABLES//
 
@@ -38,11 +78,6 @@ var questions = {
 
 
 
-//Time//
-var timeOut;
-var timeStarts;
-
-
 //Scores//
 var correctAnswers;
 var incorrectAnswers;
@@ -51,10 +86,13 @@ var unanswered;
 // FUNCTIONS//
 
 function startTrivia(params) {
-    
+ 
 }
 
-
+$("#done").click(function () {
+    $("#clear").detach();
+    
+})
 
 
 //end of (document).ready
